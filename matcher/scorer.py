@@ -64,7 +64,9 @@ class ResumeScorer:
         """
 
         jd_required = set(skill.lower() for skill in jd_data.get("required_skills", []))
-        jd_preferred = set(skill.lower() for skill in jd_data.get("preferred", []))
+        jd_preferred = set(
+            skill.lower() for skill in jd_data.get("required_skills", [])
+        )
         jd_keywords = jd_data.get("keywords", [])
         jd_min_exp = jd_data.get("min_experience", 0)
 
@@ -166,7 +168,7 @@ class ResumeScorer:
 
         if not jd_keyword_set:
             return 1.0
-        
+
         match_ratio = len(matched_keywords) / len(jd_keyword_set)
 
         frequency_bonus = 0
@@ -175,7 +177,6 @@ class ResumeScorer:
             frequency_bonus = min(0.2, keyword_count / len(resume_keywords))
 
         return min(1.0, match_ratio + frequency_bonus)
-
 
     def rank_resumes(self, scored_resumes: list[dict]) -> list[dict]:
         """
@@ -188,7 +189,7 @@ class ResumeScorer:
             sorted list of resumes
         """
         return sorted(scored_resumes, key=lambda x: x['score']['total_score'], reverse=True)
-    
+
     def filter_by_threshold(self, scored_resumes: list[dict], min_score: float | None = None) -> list[dict]:
         """
         Filter resumes by minimum score threshold
@@ -204,6 +205,6 @@ class ResumeScorer:
             min_score = self.config.get('min_score', 0.0)
 
         return [r for r in scored_resumes if r['score']['total_score'] >= min_score]
-    
+
 if __name__ == "__main__":
     pass # for testing
