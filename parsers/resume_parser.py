@@ -33,7 +33,7 @@ class ResumeParser:
 
         if file_ext == ".pdf":
             text = self._extract_pdf(file_path)
-        elif file_path in [".docx", ".doc"]:
+        elif file_ext in [".docx", ".doc"]:
             text = self._extract_docx(file_path)
         elif file_ext == ".txt":
             text = self._extract_txt(file_path)
