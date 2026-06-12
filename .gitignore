@@ -1,0 +1,11 @@
+# python virtual environments
+.venv/
+venv/
+
+# pycache
+__pycache__/
+
+# temp files
+temp.*
+# tests
+tests/
