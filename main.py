@@ -73,7 +73,7 @@ class ResumeScreeningSystem:
             jd_data = self.jd_parser.parse_file(jd_path)
             print(f"✔️  Required skills: {len(jd_data['required_skills'])}")
             print(f"✔️  Preferred skills: {len(jd_data['preferred_skills'])}")
-            print(f"✔️  Min Experience: {len(jd_data['min_experience'])} years")
+            print(f"✔️  Min Experience: {jd_data['min_experience']} years")
         except Exception as e:
             print(f"❌  Error parsing job description: {e}")
             return
