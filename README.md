@@ -42,7 +42,7 @@ An automated resume screening tool that parses candidate resumes, extracts skill
 
 1. Clone the repo and enter the directory:
    ```powershell
-   git clone <repo-url>
+   git clone https://github.com/IamME1311/Resume-Screening-System
    cd "Resume Screening System"
    ```
 
@@ -144,7 +144,3 @@ For bulk screening via the CLI, provide a `.jsonl` file with one JSON object per
 ```
 
 Text-bearing fields (`Text`, `Experience`, `Skills`, `Summary`, `Education`) are combined for matching.
-
-## License
-
-Add your license here (e.g., MIT).
